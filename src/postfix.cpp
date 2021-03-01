@@ -8,7 +8,7 @@
 
 std::string infix2postfix(std::string infix) {
   std::string postfix;
-  std::unordered_map<char, int> return_prior({ {'(', 0}, {')', 1}, 
+  std::unordered_map<char, int> return_prior({ {'(', 0}, {')', 1},
    {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} });
   int count = 0;
   int l = inf.length();
@@ -43,4 +43,5 @@ std::string infix2postfix(std::string infix) {
   if (postfix.back() == ' ') postfix.pop_back();
   while (!operation.isEmpty()) { postfix += ' ';
     postfix += operation.pop(); }
-	return postfix; }
+  return postfix; }
+	
