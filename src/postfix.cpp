@@ -6,12 +6,10 @@
 #include <unordered_map>
 
 
-std::string infix2postfix(std::string infix) 
-{
-  return infix;	  
+std::string infix2postfix(std::string infix) {
   std::string postfix;
-}	  
-std::unordered_map<char, int> return_prior({ {'(', 0}, {')', 1}, {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} });
+  std::unordered_map<char, int> return_prior({ {'(', 0}, {')', 1}, 
+   {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} });
   int count = 0;
   int l = inf.length();
   MyStack<char> operation(l+100);
