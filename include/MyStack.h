@@ -6,83 +6,83 @@
 #include <string>
 #include <cassert>
 
-template<class T>
+template<class S>
 class MyStack {
  public:
   explicit MyStack(int size);
   ~MyStack();
-  MyStack(const MyStack<T>&);
+  MyStack(const MyStack<S>&);
   int getMyStackSize() const;
   int getUpper() const;
-  T* getPtr() const;
-  void push(const T&);
+  S* getPtr() const;
+  void push(const S&);
   void pop();
   void printMyStack();
-  T isEmpty() const;
-  T isFull() const;
-  T get() const;
+  S isEmpty() const;
+  S isFull() const;
+  S get() const;
  private:
   int size;
   int upper;
-  T* store;
+  S* store;
 };
 
-template<class T>
-MyStack<T>::MyStack(int _size) :
+template<class S>
+MyStack<S>::MyStack(int _size) :
   size(_size), upper(0) {
-  store = new T[size]; }
+  store = new S[size]; }
 
-template<class T>
-MyStack<T>::MyStack(const MyStack <T>& otherStack) :
+template<class S>
+MyStack<S>::MyStack(const MyStack <S>& otherStack) :
   size(otherStack.getMyStackSize()) {
-  store = new T[size];
+  store = new S[size];
   upper = otherStack.getUpper;
   for (int ix = 0; ix < upper; ix++)
     store[ix] = otherStack.getPtr()[ix]; }
 
-template<class T>
-MyStack<T>::~MyStack() {
+template<class S>
+MyStack<S>::~MyStack() {
   delete[] store; }
 
-template <class T>
-int MyStack<T>::getMyStackSize() const {
+template <class S>
+int MyStack<S>::getMyStackSize() const {
   return size; }
 
-template <class T>
-int MyStack<T>::getUpper() const {
+template <class S>
+int MyStack<S>::getUpper() const {
   return upper; }
 
-template <class T>
-S* MyStack<T>::getPtr() const {
+template <class S>
+S* MyStack<S>::getPtr() const {
   return store; }
 
-template <typename T>
-void MyStack<T>::push(const T& value) {
+template <typename S>
+void MyStack<S>::push(const S& value) {
   assert(upper < size);
   store[upper++] = value; }
 
-template <typename T>
-void MyStack<T>::pop() {
+template <typename S>
+void MyStack<S>::pop() {
   assert(upper > 0);
   store[--upper]; }
 
-template <typename T>
-void MyStack<T>::printMyStack() {
+template <typename S>
+void MyStack<S>::printMyStack() {
   for (int ix = upper - 1; ix >= 0; ix--)
     std:: cout << store[ix] << " "; }
 
-template <typename T>
-S MyStack<T>::isEmpty() const {
+template <typename S>
+S MyStack<S>::isEmpty() const {
   if (upper == 0) return 1;
   return 0; }
 
-template <typename T>
-S MyStack<T>::isFull() const {
+template <typename S>
+S MyStack<S>::isFull() const {
   if (upper == size) return 1;
   return 0; }
 
-template <typename T>
-S MyStack<T>::get() const {
+template <typename S>
+S MyStack<S>::get() const {
   if (upper != 0)
   return store[upper - 1]; }
 
