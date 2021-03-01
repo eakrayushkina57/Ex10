@@ -1,9 +1,7 @@
 // Copyright 2021 Krayushkina
 #include "MyStack.h"
 #include "postfix.h"
-#include <iostream>
 #include <string>
-#include <unordered_map>
 
 std::string infix2postfix(std::string infix) {
   std::string postfix;
