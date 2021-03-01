@@ -10,9 +10,9 @@ std::string infix2postfix(std::string infix) {
   std::unordered_map<char, int> return_prior({ {'(', 0}, {')', 1},
    {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} });
   int count = 0;
-  int l = inf.length();
-  MyStack<char> operation(l+100);
-  for (count = 0; count < l; count++) {
+  int len = inf.length();
+  MyStack<char> operation(len+100);
+  for (count = 0; count < len; count++) {
     if (inf[count] != ' ') {
       if (inf[count] == '(') {
         operation.push(inf[count]);
