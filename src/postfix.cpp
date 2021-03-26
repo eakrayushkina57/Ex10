@@ -17,7 +17,8 @@ string infix_to_postfix(string obj) {
         if (stack.isEmpty()) STACK_PUSH
         else if (stack.get() == '*' || stack.get() == '/')
         { tmp += stack.pop(); tmp += ' '; STACK_PUSH }
-        else STACK_PUSH
+        else 
+			STACK_PUSH
     }
     else if (obj[i] == '+' || obj[i] == '-')
     {if (!stack.isEmpty() && stack.get() != '(') {
