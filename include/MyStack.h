@@ -3,12 +3,11 @@
 #define INCLUDE_MYSTACK_H_
 
 template <class TYPE>
-class MyStack
-{
+class MyStack {
  private:
     TYPE* arr;
     int length, pos = 0;
-     public:
+ public:
     explicit MyStack(int length)
     { arr = new TYPE[length]; this->length = length;}
     MyStack(const MyStack& s) {
@@ -37,4 +36,4 @@ class MyStack
     }
 }
 
-#endif  //INCLUDE_MYSTACK_H_
+#endif  // INCLUDE_MYSTACK_H_
