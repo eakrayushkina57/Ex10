@@ -3,13 +3,13 @@
 #define INCLUDE_MYSTACK_H_
 
 template <class TYPE>
-class MyStack 
+class MyStack
 {
-private:
+ private:
     TYPE* arr;
     int length, pos = 0;
-    public:
-    explicit MyStack(int length) 
+     public:
+    explicit MyStack(int length)
     { arr = new TYPE[length]; this->length = length;}
     MyStack(const MyStack& s) {
         this->arr = new TYPE[s.length];

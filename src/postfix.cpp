@@ -19,7 +19,7 @@ string infix_to_postfix(string obj) {
         { tmp += stack.pop(); tmp += ' '; STACK_PUSH }
         else STACK_PUSH
     }
-    else if (obj[i] == '+' || obj[i] == '-') 
+    else if (obj[i] == '+' || obj[i] == '-')
     {if (!stack.isEmpty() && stack.get() != '(') {
             tmp = tmp + stack.pop(); tmp = tmp + ' ';}
         STACK_PUSH
