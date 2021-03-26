@@ -1,8 +1,5 @@
 // Copyright 2021 Krayushkina
 #include <iostream>
-#include <string>
-
-#include <iostream>
 #include "postfix.h"
 #include "MyStack.h"
 using std::cout;

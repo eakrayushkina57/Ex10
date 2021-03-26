@@ -8,7 +8,8 @@ class MyStack {
     TYPE* arr;
     int length, pos = 0;
  public:
-    explicit MyStack(int length) { arr = new TYPE[length]; this->length = length;}
+    explicit MyStack(int length) { arr = new TYPE[length];
+    this->length = length;}
     MyStack(const MyStack& s) {
         this->arr = new TYPE[s.length];
         for (int i = 0; i < s.length; ++i) this->arr[i] = s.arr[i];
