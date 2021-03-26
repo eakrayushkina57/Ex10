@@ -1,9 +1,8 @@
-// Copyright 2021 Krayushkina
 #ifndef INCLUDE_POSTFIX_H_
 #define INCLUDE_POSTFIX_H_
 #include <string>
-#include <iostream>
+using std::string;
 
-std::string infix2postfix(std::string infix);
+string infix_to_postfix(string obj);
 
 #endif  // INCLUDE_POSTFIX_H_

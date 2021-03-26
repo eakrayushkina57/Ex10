@@ -1,43 +1,38 @@
-// Copyright 2021 Krayushkina
 #include "MyStack.h"
 #include "postfix.h"
-#include <string>
+#define STACK_PUSH stack.push(obj[i]);
 
-std::string infix2postfix(std::string infix) {
-  std::string postfix;
-  std::unordered_map<char, int> return_prior({ {'(', 0}, {')', 1},
-   {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} });
-  int count = 0;
-  int len = inf.length();
-  MyStack<char> operation(len+100);
-  for (count = 0; count < len; count++) {
-    if (inf[count] != ' ') {
-      if (inf[count] == '(') {
-        operation.push(inf[count]);
-      } else if (inf[count] == ')') {
-        while (operation.get() != '(') {
-          postfix += operation.pop();
-          postfix += ' '; }
-        operation.pop();
-      } else if (inf[count] == '+' || inf[count] == '-') {
-        while (return_prior[operation.get()] > 1) {
-          postfix += operation.pop();
-          postfix += ' '; }
-        operation.push(inf[count]);
-      } else if (inf[count] == '*' || inf[count] == '/') {
-        while (operation.get() == '*' || operation.get() == '/') {
-          postfix += operation.pop();
-          postfix += ' '; }
-        operation.push(inf[count]);
-      } else if (inf[count] >= '0' && inf[count] <= '9') {
-        while (count < l && inf[count] != ')' &&
-          inf[count] != ' ') { postfix += inf[count];
-          count += 1; }
-          count -= 1;
-          postfix += ' '; }
+string infix_to_postfix(string obj) 
+{
+  MyStack<char> stack(100);
+  string tmp;
+  for (int i = 0; i < obj.length(); i++)
+  {
+    if (obj[i] <= '9' && obj[i] >= '0')
+    {
+        while (obj[i] >= '0' && obj[i] <= '9') { tmp += obj[i]; ++i; }
+        --i;
+        tmp = tmp + ' ';
+    }
+    else if (obj[i] == '(') STACK_PUSH
+    else if (obj[i] == '*' || obj[i] == '/')
+    {
+        if (stack.isEmpty()) STACK_PUSH
+        else if (stack.get() == '*' || stack.get() == '/') { tmp += stack.pop(); tmp += ' '; STACK_PUSH }
+        else STACK_PUSH
+    }
+    else if (obj[i] == '+' || obj[i] == '-')
+    {
+        if (!stack.isEmpty() && stack.get() != '(') { tmp = tmp + stack.pop(); tmp = tmp + ' ';} 
+        STACK_PUSH
+    }
+    else if(obj[i] == ')') 
+    { 
+        while (stack.get() != '(') { tmp = tmp + stack.pop(); tmp = tmp + ' ';}
+        stack.pop();
     }
   }
-  if (postfix.back() == ' ') postfix.pop_back();
-  while (!operation.isEmpty()) { postfix += ' ';
-    postfix += operation.pop(); }
-  return postfix; }
+  while (!stack.isEmpty()) { tmp = tmp + stack.pop(); tmp = tmp + ' '; }
+  tmp.erase(tmp.length() - 1);
+  return tmp;
+}
