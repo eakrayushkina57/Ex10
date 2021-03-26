@@ -19,8 +19,8 @@ class MyStack {
     ~MyStack() { delete[] arr; }
     TYPE get() const { return arr[pos - 1]; }
     TYPE pop() {
-        if (isEmpty()) throw "Stack is empty!";
-        else return arr[--pos];
+        if (isEmpty()) {throw "Stack is empty!"};
+        else {return arr[--pos]};
     }
     void push(TYPE x) {
         if (isFull()) throw "Stack is full!";
