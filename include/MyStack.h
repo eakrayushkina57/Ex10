@@ -3,13 +3,14 @@
 #define INCLUDE_MYSTACK_H_
 
 template <class TYPE>
-class MyStack {
- private:
+class MyStack 
+{
+private:
     TYPE* arr;
     int length, pos = 0;
- public:
-    explicit MyStack(int length) { arr = new TYPE[length];
-    this->length = length;}
+    public:
+    explicit MyStack(int length) 
+    { arr = new TYPE[length]; this->length = length;}
     MyStack(const MyStack& s) {
         this->arr = new TYPE[s.length];
         for (int i = 0; i < s.length; ++i) this->arr[i] = s.arr[i];
@@ -17,7 +18,6 @@ class MyStack {
         this->pos = s.pos;
     }
     ~MyStack() { delete[] arr; }
- public:
     TYPE get() const { return arr[pos - 1]; }
     TYPE pop() {
         if (isEmpty()) throw "Stack is empty!";
@@ -36,4 +36,5 @@ class MyStack {
         return false;
     }
 }
+
 #endif  //INCLUDE_MYSTACK_H_
